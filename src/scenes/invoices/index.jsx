@@ -11,23 +11,33 @@ const Invoices = () => {
     { field: "id", headerName: "ID" },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Nome",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "desc",
+      headerName: "Descrição",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "qnt",
+      headerName: "Quantidade",
+      flex: 1,
+    },
+    {
+      field: "arm",
+      headerName: "Armazem",
+      flex: 1,
+    },
+    {
+      field: "cat",
+      headerName: "Categoria",
       flex: 1,
     },
     {
       field: "cost",
-      headerName: "Cost",
+      headerName: "Preço",
       flex: 1,
       renderCell: (params) => (
         <Typography color={colors.greenAccent[500]}>
@@ -35,16 +45,11 @@ const Invoices = () => {
         </Typography>
       ),
     },
-    {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-    },
   ];
 
   return (
     <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+      <Header title="PRODUTOS" subtitle="Lista de Produtos" />
       <Box
         m="40px 0 0 0"
         height="75vh"
