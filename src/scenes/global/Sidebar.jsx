@@ -12,7 +12,6 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import WarehouseOutlinedIcon from '@mui/icons-material/WarehouseOutlined';
 import CategoryOutlinedIcon from '@mui/icons-material/CategoryOutlined';
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StoreOutlinedIcon from '@mui/icons-material/StoreOutlined';
 import AddHomeWorkOutlinedIcon from '@mui/icons-material/AddHomeWorkOutlined';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
@@ -137,15 +136,8 @@ const Sidebar = () => {
               Movimentos
             </Typography>
             <Item
-              title="Compras"
-              to="/team"
-              icon={<ShoppingCartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
               title="Vendas"
-              to="/team"
+              to="/vendas"
               icon={<StoreOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

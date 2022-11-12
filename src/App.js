@@ -21,6 +21,7 @@ import { ColorModeContext, useMode } from "./theme";
 import Calendar from "./scenes/calendar/calendar";
 import ArmazemCategoria from "./scenes/form/armazemCategoria";
 import { AccountBox } from "./scenes/form/logSign";
+import Vendas from "./scenes/form/vendasForm";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -36,6 +37,7 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/login" element={<AccountBox />} />
+              <Route path="/vendas" element={<Vendas />} />
               <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
