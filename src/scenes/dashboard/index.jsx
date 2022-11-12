@@ -41,7 +41,7 @@ const Dashboard = () => {
         >
           <StatBox
             title="12,361"
-            subtitle="Emails Sent"
+            subtitle="Entregas"
             progress="0.75"
             increase="+14%"
             icon={
@@ -127,14 +127,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Saída de produtos
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,342.32
+                1
               </Typography>
             </Box>
             <Box></Box>
@@ -158,7 +158,7 @@ const Dashboard = () => {
             p="15px"
           >
             <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
+              Encomendas recentes
             </Typography>
           </Box>
           {mockTransactions.map((transaction, i) => (

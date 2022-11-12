@@ -6,6 +6,8 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Team = () => {
   const theme = useTheme();
@@ -13,54 +15,80 @@ const Team = () => {
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "name",
+      field: "nome",
       headerName: "Nome",
       flex: 1,
       cellClassName: "name-column--cell",
     },
-    {
-      field: "phone",
-      headerName: "Numero de Celular",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "accessLevel",
-      headerName: "Nivel de Acesso",
-      flex: 1,
-      renderCell: ({ row: { access } }) => {
-        return (
-          <Box
-            width="60%"
-            m="0 auto"
-            p="5px"
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : access === "manager"
-                ? colors.greenAccent[700]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
-          >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
-    },
-  ];
 
+    {
+      field: "armazem",
+      headerName: "armazem",
+      flex: 1,
+    },
+
+    {
+      field: "contacto",
+      headerName: "contacto",
+      flex: 1,
+    },
+    // {
+    //   field: "accessLevel",
+    //   headerName: "Nivel de Acesso",
+    //   flex: 1,
+    //   renderCell: ({ row: { access } }) => {
+    //     return (
+    //       <Box
+    //         width="60%"
+    //         m="0 auto"
+    //         p="5px"
+    //         display="flex"
+    //         justifyContent="center"
+    //         backgroundColor={
+    //           access === "admin"
+    //             ? colors.greenAccent[600]
+    //             : access === "manager"
+    //             ? colors.greenAccent[700]
+    //             : colors.greenAccent[700]
+    //         }
+    //         borderRadius="4px"
+    //       >
+    //         {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
+    //         {access === "manager" && <SecurityOutlinedIcon />}
+    //         {access === "user" && <LockOpenOutlinedIcon />}
+    //         <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+    //           {access}
+    //         </Typography>
+    //       </Box>
+    //     );
+    //   },
+    // },
+  ];
+  const [funcionarios, setFuncionarios] = useState([]);
+  let func_data = [];
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/funcionario")
+      .then((res) => {
+        console.log(res.data);
+        setFuncionarios(res.data);
+      })
+      .catch((err) => console.log(err));
+
+    console.log("this is funcionarios", funcionarios);
+  }, []);
+
+  funcionarios.forEach((func) => {
+    func_data = [
+      ...func_data,
+      {
+        id: func.func_codigo,
+        nome: func.func_nome,
+        armazem: func.arm_codigo,
+        contacto: func.contactos[0]?.telefone,
+      },
+    ];
+  });
   return (
     <Box m="20px">
       <Header title="FUNCIONARIOS" subtitle="Gestão de Funcionarios" />
@@ -93,7 +121,7 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
+        <DataGrid checkboxSelection rows={func_data} columns={columns} />
       </Box>
     </Box>
   );
