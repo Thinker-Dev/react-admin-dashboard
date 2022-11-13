@@ -22,6 +22,9 @@ import Calendar from "./scenes/calendar/calendar";
 import ArmazemCategoria from "./scenes/form/armazemCategoria";
 import { AccountBox } from "./scenes/form/logSign";
 import Vendas from "./scenes/form/vendasForm";
+import Camioes from "./scenes/tablesDados/camioes";
+import Armazens from "./scenes/tablesDados/armazens";
+import Fornecedores from "./scenes/tablesDados/fornecedores";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -36,9 +39,12 @@ function App() {
           <main className="content">
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
+              <Route path="/" element={<Dashboard />} />
               <Route path="/login" element={<AccountBox />} />
               <Route path="/vendas" element={<Vendas />} />
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/camioes" element={<Camioes />} />
+              <Route path="/armazens" element={<Armazens />} />
+              <Route path="/fornecedores" element={<Fornecedores />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
               <Route path="/invoices" element={<Invoices />} />

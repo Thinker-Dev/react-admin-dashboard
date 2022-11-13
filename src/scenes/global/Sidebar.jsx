@@ -20,6 +20,9 @@ import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
+import Groups3Icon from '@mui/icons-material/Groups3';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -168,6 +171,27 @@ const Sidebar = () => {
               title="Produtos"
               to="/invoices"
               icon={<ReceiptOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Camiões"
+              to="/camioes"
+              icon={<LocalShippingIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Armazens"
+              to="/armazens"
+              icon={<HolidayVillageIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Fornecedores"
+              to="/fornecedores"
+            icon={<Groups3Icon />}
               selected={selected}
               setSelected={setSelected}
             />
