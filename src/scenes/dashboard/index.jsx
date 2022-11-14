@@ -12,10 +12,45 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [encNr, setEncNr] = useState(0);
+  const [cliNr, setCliNr] = useState(0);
+  const [entNr, setEntNr] = useState(0);
+  const [encomendas, setEncomendas] = useState([]);
+  const [totalProd, setTotalProd] = useState(0);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/count")
+      .then((res) => {
+        console.log(res.data);
+        setEncNr(res.data.enc_nr);
+        setCliNr(res.data.cli_nr);
+        setEntNr(res.data.entrega_nr);
+      })
+      .catch((err) => console.log(err));
+    axios
+      .get("http://localhost:8000/produto/soma")
+      .then((res) => {
+        console.log(res.data);
+        setTotalProd(res.data.totalProd);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/encomenda")
+      .then((res) => {
+        console.log(res.data);
+        setEncomendas(res.data)
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <Box m="20px">
@@ -40,7 +75,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
+            title={entNr}
             subtitle="Entregas"
             progress="0.75"
             increase="+14%"
@@ -59,7 +94,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
+            title={totalProd}
             subtitle="Produtos no Armazem"
             progress="0.50"
             icon={
@@ -77,8 +112,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="Novos Clientes"
+            title={cliNr}
+            subtitle="Clientes"
             progress="0.30"
             increase="+5%"
             icon={
@@ -96,7 +131,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
+            title={encNr}
             subtitle="Encomendas"
             progress="0.80"
             increase="+43%"
@@ -161,9 +196,9 @@ const Dashboard = () => {
               Encomendas recentes
             </Typography>
           </Box>
-          {mockTransactions.map((transaction, i) => (
+          {encomendas.map((enc, i) => (
             <Box
-              key={`${transaction.txId}-${i}`}
+              key={`${enc.enc_codigo}-${i}`}
               display="flex"
               justifyContent="space-between"
               alignItems="center"
@@ -176,19 +211,19 @@ const Dashboard = () => {
                   variant="h5"
                   fontWeight="600"
                 >
-                  {transaction.txId}
+                  {enc.enc_codigo}
                 </Typography>
                 <Typography color={colors.grey[100]}>
-                  {transaction.user}
+                  {enc.cliente.cli_nome}
                 </Typography>
               </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
+              <Box color={colors.grey[100]}>{enc.enc_data}</Box>
               <Box
                 backgroundColor={colors.greenAccent[500]}
                 p="5px 10px"
                 borderRadius="4px"
               >
-                ${transaction.cost}
+                {enc.enc_estado}
               </Box>
             </Box>
           ))}

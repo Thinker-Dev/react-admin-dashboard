@@ -23,20 +23,19 @@ const ProdutoForm = () => {
 
   const handleFormSubmit = (values) => {
     console.log(values);
-    // axios
-    //   .post("http://localhost:8000/produto", {
-    //     cod_nome: nome,
-    //     codigo_arm: Number(values.codigo_armazem),
-    //     prod_prazo_validade : values.prazo_validade,
-    //     codigo_categoria: values.categoria
-
-    //   })
-    //   .then((res) => {
-    //     console.log("response", res.data);
-    //   })
-    //   .catch((err) => {
-    //     console.log("error", err);
-    //   });
+    axios
+      .post("http://localhost:8000/produto", {
+        prod_nome: values.nome,
+        codigo_arm: values.cod_armazem,
+        prod_prazo_validade: values.prazo_validade,
+        codigo_cat: values.categoria,
+      })
+      .then((res) => {
+        console.log("response", res.data);
+      })
+      .catch((err) => {
+        console.log("error", err);
+      });
   };
 
   return (
@@ -103,22 +102,19 @@ const ProdutoForm = () => {
                 helperText={touched.prazo_validade && errors.prazo_validade}
                 sx={{ gridColumn: "span 2" }}
               />
-              <Autocomplete
+              <TextField
                 fullWidth
                 variant="filled"
+                type="number"
                 onBlur={handleBlur}
                 onChange={handleChange}
                 value={values.categoria}
                 name="categoria"
+                label="Categoria"
                 error={!!touched.categoria && !!errors.categoria}
-                helperText={touched.categoria && errors.categoria}
                 sx={{ gridColumn: "span 2" }}
-                disablePortal
                 id="combo-box-demo"
                 options={categoria}
-                renderInput={(params) => (
-                  <TextField {...params} label="Categoria" />
-                )}
               />
               {/* <TextareaAutosize
                                 aria-label="minimum height"
