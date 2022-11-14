@@ -25,41 +25,57 @@ import Vendas from "./scenes/form/vendasForm";
 import Camioes from "./scenes/tablesDados/camioes";
 import Armazens from "./scenes/tablesDados/armazens";
 import Fornecedores from "./scenes/tablesDados/fornecedores";
+import { useSelector } from "react-redux";
+import { selectUserName } from "./features/user/userSlice";
 
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
-
+  const userName = useSelector(selectUserName);
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Sidebar isSidebar={isSidebar} />
+          {userName ? <Sidebar isSidebar={isSidebar} /> : <></>}
+
           <main className="content">
-            <Topbar setIsSidebar={setIsSidebar} />
+            {userName ? <Topbar setIsSidebar={setIsSidebar} /> : <></>}
+
             <Routes>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/login" element={<AccountBox />} />
-              <Route path="/vendas" element={<Vendas />} />
-              <Route path="/camioes" element={<Camioes />} />
-              <Route path="/armazens" element={<Armazens />} />
-              <Route path="/fornecedores" element={<Fornecedores />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/invoices" element={<Invoices />} />
-              <Route path="/form" element={<Form />} />
-              <Route path="/armazemcategoria" element={<ArmazemCategoria />} />
-              <Route path="/funcionarioform" element={<FuncionarioForm />} />
-              <Route path="/fornecedorForm" element={<FornecedorForm />} />
-              <Route path="/produtoForm" element={<ProdutoForm />} />
-              <Route path="/camiaoForm" element={<CamiaoForm />} />
-              <Route path="/bar" element={<Bar />} />
-              <Route path="/pie" element={<Pie />} />
-              <Route path="/line" element={<Line />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/calendar" element={<Calendar />} />
-              <Route path="/geography" element={<Geography />} />
+              {userName ? (
+                <>
+                  <Route path="/" element={<Dashboard />} />
+
+                  <Route path="/vendas" element={<Vendas />} />
+                  <Route path="/camioes" element={<Camioes />} />
+                  <Route path="/armazens" element={<Armazens />} />
+                  <Route path="/fornecedores" element={<Fornecedores />} />
+                  <Route path="/team" element={<Team />} />
+                  <Route path="/contacts" element={<Contacts />} />
+                  <Route path="/invoices" element={<Invoices />} />
+                  <Route path="/form" element={<Form />} />
+                  <Route
+                    path="/armazemcategoria"
+                    element={<ArmazemCategoria />}
+                  />
+                  <Route
+                    path="/funcionarioform"
+                    element={<FuncionarioForm />}
+                  />
+                  <Route path="/fornecedorForm" element={<FornecedorForm />} />
+                  <Route path="/produtoForm" element={<ProdutoForm />} />
+                  <Route path="/camiaoForm" element={<CamiaoForm />} />
+                  <Route path="/bar" element={<Bar />} />
+                  <Route path="/pie" element={<Pie />} />
+                  <Route path="/line" element={<Line />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/calendar" element={<Calendar />} />
+                  <Route path="/geography" element={<Geography />} />
+                </>
+              ) : (
+                <Route path="/" element={<AccountBox />} />
+              )}
             </Routes>
           </main>
         </div>

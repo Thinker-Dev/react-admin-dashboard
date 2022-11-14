@@ -18,7 +18,8 @@ specifiers:
   '@nivo/geo': ^0.80.0
   '@nivo/line': ^0.79.1
   '@nivo/pie': ^0.80.0
-  '@reduxjs/toolkit': ^1.8.5
+  '@redux-tools/react': ^0.9.1
+  '@reduxjs/toolkit': ^1.8.6
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^13.3.0
   '@testing-library/user-event': ^13.5.0
@@ -30,7 +31,7 @@ specifiers:
   react-chartjs-2: ^4.3.1
   react-dom: ^18.2.0
   react-pro-sidebar: ^0.7.1
-  react-redux: ^8.0.2
+  react-redux: ^8.0.4
   react-router-dom: ^6.3.0
   react-scripts: 5.0.1
   styled-components: ^5.3.6
@@ -55,6 +56,7 @@ dependencies:
   '@nivo/geo': 0.80.0_zhuuyauhwzzhfusgrzbzttapgm
   '@nivo/line': 0.79.1_zhuuyauhwzzhfusgrzbzttapgm
   '@nivo/pie': 0.80.0_zhuuyauhwzzhfusgrzbzttapgm
+  '@redux-tools/react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
   '@reduxjs/toolkit': 1.8.6_kuo2ie247izvzll3jejufdtq3q
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
@@ -2975,6 +2977,164 @@ packages:
       '@react-spring/types': 9.4.5
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@redux-tools/actions/0.9.1:
+    resolution: {integrity: sha512-Ig1vrYIsJT60pxPlfVXA7Tk2YM00oIHeCfHEfGXW6s6bMwqVhygVHoU9omCJeuevjl6oFtqaCeznnx7K9envow==}
+    dependencies:
+      '@redux-tools/utils': 0.9.1
+      invariant: 2.2.4
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+    dev: false
+
+  /@redux-tools/injectors-react/0.9.1_kuo2ie247izvzll3jejufdtq3q:
+    resolution: {integrity: sha512-X91JZY2nTWBLaTtKV0LgBmSAGByub6+XPQ9r3ZBfgYmE4R/kSeRK4RCOuB8GtWaCHuHYIx0vRufVAZtre4+05A==}
+    peerDependencies:
+      react: '>=16.8.3'
+      react-redux: ^6.0.0 || ^7.0.0
+    dependencies:
+      '@redux-tools/injectors': 0.9.1
+      '@redux-tools/namespaces': 0.9.1
+      '@redux-tools/namespaces-react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
+      '@redux-tools/utils': 0.9.1
+      '@redux-tools/utils-react': 0.9.1_react@18.2.0
+      hoist-non-react-statics: 3.3.2
+      invariant: 2.2.4
+      prop-types: 15.8.1
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+      react: 18.2.0
+      react-redux: 8.0.4_biqbaboplfbrettd7655fr4n2y
+    transitivePeerDependencies:
+      - redux
+    dev: false
+
+  /@redux-tools/injectors/0.9.1:
+    resolution: {integrity: sha512-GR+HuCBHfSFfukG2f/K3uLsFBt89pRAvseN2zhoNjXGXbyT7bBDZ42rvIE7PxvhUf2uMOXBTG9MfYFl5bv+OGA==}
+    dependencies:
+      '@redux-tools/namespaces': 0.9.1
+      '@redux-tools/utils': 0.9.1
+      invariant: 2.2.4
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+    dev: false
+
+  /@redux-tools/middleware-react/0.9.1_kuo2ie247izvzll3jejufdtq3q:
+    resolution: {integrity: sha512-ZFzIMQz0t8yK8xDUOmQH5XzvnXKnfKNxTbodfXX+Obd9p/0agacSHttv3rFX55+hixvBwQDdyx0yJr1lVYmA/Q==}
+    peerDependencies:
+      react: '>=16.8.3'
+      react-redux: ^6.0.0 || ^7.0.0
+      redux: ^4.0.4
+    dependencies:
+      '@redux-tools/injectors-react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
+      '@redux-tools/middleware': 0.9.1
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+      react: 18.2.0
+      react-redux: 8.0.4_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
+  /@redux-tools/middleware/0.9.1:
+    resolution: {integrity: sha512-lKiBZvBa8yXXmO7wqn3JT8wwJ38LxlO9FBqXyNn/0DFNKd/XEo5P9YUMQbBA9IqGf2hDbPK/balSe/dWR7zjYw==}
+    peerDependencies:
+      redux: ^4.0.4
+    dependencies:
+      '@redux-tools/injectors': 0.9.1
+      '@redux-tools/namespaces': 0.9.1
+      '@redux-tools/reducers': 0.9.1
+      invariant: 2.2.4
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+    dev: false
+
+  /@redux-tools/namespaces-react/0.9.1_kuo2ie247izvzll3jejufdtq3q:
+    resolution: {integrity: sha512-qO7Rv7gsda0fUEo2wl/ZMfCXUWLwD6zFzptMcdOsubJJLiZoSwT9r3R9D9OWrZDE+cdOIrrcgYM80wuOeJ8jnw==}
+    peerDependencies:
+      react: '>=16.8.3'
+      react-redux: ^6.0.0 || ^7.0.0
+      redux: ^4.0.4
+    dependencies:
+      '@redux-tools/namespaces': 0.9.1
+      '@redux-tools/reducers': 0.9.1
+      '@redux-tools/utils-react': 0.9.1_react@18.2.0
+      hoist-non-react-statics: 3.3.2
+      prop-types: 15.8.1
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+      react: 18.2.0
+      react-redux: 8.0.4_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
+  /@redux-tools/namespaces/0.9.1:
+    resolution: {integrity: sha512-nDprelnHor2BplC23zbeLVstcf2hN4T4sAURCgUANl7CMPDFVvbuB2YD6zcOJadBengUUaBo61O8uuurRNCjEg==}
+    dependencies:
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+    dev: false
+
+  /@redux-tools/react/0.9.1_kuo2ie247izvzll3jejufdtq3q:
+    resolution: {integrity: sha512-NqzFwZa0r4OrZSlRD9SJsL/8rk6ttuDJlW3v+RXqoQM2ADUrjoY31ky5UbETKgiFu5tvFNhieXprHMp+XRX+bw==}
+    peerDependencies:
+      react: '>=16.8.3'
+      react-redux: ^6.0.0 || ^7.0.0
+      redux: ^4.0.4
+    dependencies:
+      '@redux-tools/actions': 0.9.1
+      '@redux-tools/middleware': 0.9.1
+      '@redux-tools/middleware-react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
+      '@redux-tools/namespaces': 0.9.1
+      '@redux-tools/namespaces-react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
+      '@redux-tools/reducers': 0.9.1
+      '@redux-tools/reducers-react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
+      react: 18.2.0
+      react-redux: 8.0.4_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
+  /@redux-tools/reducers-react/0.9.1_kuo2ie247izvzll3jejufdtq3q:
+    resolution: {integrity: sha512-YQrxuT2PzYmd6ZhFEqGdVKdpJ+vzXinYQaGQq6rWgv9WXI7RSsNAFsQA3MwM/r0FFRUf12WNUbzk6vZ2e+X21A==}
+    peerDependencies:
+      react: '>=16.8.3'
+      react-redux: ^6.0.0 || ^7.0.0
+      redux: ^4.0.4
+    dependencies:
+      '@redux-tools/injectors-react': 0.9.1_kuo2ie247izvzll3jejufdtq3q
+      '@redux-tools/reducers': 0.9.1
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+      react: 18.2.0
+      react-redux: 8.0.4_biqbaboplfbrettd7655fr4n2y
+    dev: false
+
+  /@redux-tools/reducers/0.9.1:
+    resolution: {integrity: sha512-g69oxEpKpu9TKPZa+GsxyEZicqgMFelInMn2igQstPmXvWf20AO/SVralNz4f4tzlStxyHGYHg9OLffjXDOG+w==}
+    peerDependencies:
+      redux: ^4.0.4
+    dependencies:
+      '@redux-tools/injectors': 0.9.1
+      '@redux-tools/namespaces': 0.9.1
+      '@redux-tools/utils': 0.9.1
+      invariant: 2.2.4
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+    dev: false
+
+  /@redux-tools/utils-react/0.9.1_react@18.2.0:
+    resolution: {integrity: sha512-T8OSAFrmU/pmZ35qWqzzUx3nJr4uAo2JNFU4UMcjtz2chRmAbEC+PtgLbJp1iwH6cQRTuGShWTc1fWMUGhJ2Xw==}
+    peerDependencies:
+      react: '>=16.8.3'
+    dependencies:
+      hoist-non-react-statics: 3.3.2
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
+      react: 18.2.0
+    dev: false
+
+  /@redux-tools/utils/0.9.1:
+    resolution: {integrity: sha512-8qmz2+xQoHvJaWs/otJAZdeDDJ/t96kVricMf3iBH7PgKljavpZxfCflNbCn5vRowyoUtTDmnfiRL/XfACiQtA==}
+    dependencies:
+      ramda: 0.28.0
+      ramda-extension: 0.11.0_ramda@0.28.0
     dev: false
 
   /@reduxjs/toolkit/1.8.6_kuo2ie247izvzll3jejufdtq3q:
@@ -6797,6 +6957,12 @@ packages:
     resolution: {integrity: sha512-lDB5YccMydFBtasVtxnZ3MRBHuaoE8GKsppq+EchKL2U4nK/DmEpPHNH8MZe5HkMtpSiTSOZwfN0tzYjO/lJEw==}
     dev: false
 
+  /invariant/2.2.4:
+    resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
+
   /ipaddr.js/1.9.1:
     resolution: {integrity: sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==}
     engines: {node: '>= 0.10'}
@@ -9421,6 +9587,18 @@ packages:
     resolution: {integrity: sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==}
     dependencies:
       performance-now: 2.1.0
+    dev: false
+
+  /ramda-extension/0.11.0_ramda@0.28.0:
+    resolution: {integrity: sha512-VofD0JDaaIFgGebHr74njuFjKRXeRnQtGDmUe5TZg2sqnr3G2TtDkWefgOgbwv0N3tFT9UC0SzI5FoKFqg41NA==}
+    peerDependencies:
+      ramda: '>=0.26.1'
+    dependencies:
+      ramda: 0.28.0
+    dev: false
+
+  /ramda/0.28.0:
+    resolution: {integrity: sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==}
     dev: false
 
   /randombytes/2.1.0:

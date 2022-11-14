@@ -26,7 +26,11 @@ const Team = () => {
       headerName: "armazem",
       flex: 1,
     },
-
+    {
+      field: "email",
+      headerName: "email",
+      flex: 1,
+    },
     {
       field: "contacto",
       headerName: "contacto",
@@ -86,6 +90,7 @@ const Team = () => {
         nome: func.func_nome,
         armazem: func.arm_codigo,
         contacto: func.contactos[0]?.telefone,
+        email: func.func_email,
       },
     ];
   });

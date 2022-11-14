@@ -23,6 +23,7 @@ const Dashboard = () => {
   const [entNr, setEntNr] = useState(0);
   const [encomendas, setEncomendas] = useState([]);
   const [totalProd, setTotalProd] = useState(0);
+  const [totalQuant, setTotalQuant] = useState(0);
   useEffect(() => {
     axios
       .get("http://localhost:8000/count")
@@ -40,6 +41,13 @@ const Dashboard = () => {
         setTotalProd(res.data.totalProd);
       })
       .catch((err) => console.log(err));
+    axios
+      .get("http://localhost:8000/count/contem")
+      .then((res) => {
+        console.log(res.data);
+        setTotalQuant(res.data.totalQuant);
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
@@ -47,7 +55,7 @@ const Dashboard = () => {
       .get("http://localhost:8000/encomenda")
       .then((res) => {
         console.log(res.data);
-        setEncomendas(res.data)
+        setEncomendas(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -237,7 +245,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Desempenho
           </Typography>
           <Box
             display="flex"
@@ -251,7 +259,7 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              {totalQuant} Total de produtos encomendados
             </Typography>
             <Typography>Includes extra misc expenditures and costs</Typography>
           </Box>
@@ -283,7 +291,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-            Geography Based Traffic
+            zona de encomenda
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />
