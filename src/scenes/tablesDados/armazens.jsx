@@ -15,16 +15,6 @@ const Armazens = () => {
             flex: 1,
             cellClassName: "name-column--cell",
         },
-        {
-            field: "cap",
-            headerName: "Capacidade",
-            flex: 1,
-        },
-        {
-            field: "nvlRef",
-            headerName: "Nivel de Refrigeração",
-            flex: 1,
-        },
     ];
 
     return (
